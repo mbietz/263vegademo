@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>Vega-Lite Bar Chart</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.9.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.1"></script>
+
+
+    <script>
+        // Assign the specification to a local variable vlSpec.
+        var bf1 = {
+            $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+            "data": {"url": "./bfro_reports_geocoded.csv", "format": "csv"},
+            "mark": "bar",
+            "encoding": {
+                "x": {"field": "season", "type": "nominal"},
+                "y": {"aggregate": "count","type": "quantitative"}
+            }
+                
+        };
+
+
+    </script>    
+  </head>
+  <body onload="vegaEmbed('#vis', bf1)">
+    <h1>Bigfoot Sightings</h1>
+    <!-- Container for the visualization -->
+    <div id="vega"><h2>Visualization</h2><div id="vis"></div></div>
+
+    <div id="colspec">
+        <h2>Data Field Description</h2>
+        <table>
+            <thead></thead><tr><th>Column Name</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+                <tr><td>observed</td><td>string</td><td>Full text description of the sighting.</td></tr>
+                <tr><td>location_details</td><td>string</td><td>Details about the location of the sighting.</td></tr>
+                <tr><td>county</td><td>string</td><td>The county in which the sighting occurred.</td></tr>
+                <tr><td>state</td><td>string</td><td>The state in which the sighting occurred.</td></tr>
+                <tr><td>season</td><td>string</td><td>The season of the sighting.</td></tr>
+                <tr><td>title</td><td>string</td><td>The title of the sighting.</td></tr>
+                <tr><td>latitude</td><td>decimal</td><td>The latitude of the sighting.</td></tr>
+                <tr><td>longitude</td><td>decimal</td><td>The longitude of the sighting.</td></tr>
+                <tr><td>location</td><td>geopoint</td><td>The location of the sighting in WKT format.</td></tr>
+                <tr><td>date</td><td>date</td><td>The date of the sighting.</td></tr>
+                <tr><td>number</td><td>decimal</td><td>The report number.</td></tr>
+                <tr><td>classification</td><td>string</td><td>The report classification (Class A, Class B or Class C).</td></tr>
+                <tr><td>geohash</td><td>string</td><td>A geohash of the sighting location.</td></tr>
+                <tr><td>temperature_high</td><td>decimal</td><td>The high temperature the day of the sighting in degrees Fahrenheit.</td></tr>
+                <tr><td>temperature_mid</td><td>decimal</td><td>The midpoint between high and low temperatures the day of the sighting in degrees Fahrenheit.</td></tr>
+                <tr><td>temperature_low</td><td>decimal</td><td>The low temperature the day of the sighting in degrees Fahrenheit.</td></tr>
+                <tr><td>dew_point</td><td>decimal</td><td>The dew point the day of the sighting in Fahrenheit.</td></tr>
+                <tr><td>humidity</td><td>decimal</td><td>The relative humidity the day of the sighting.</td></tr>
+                <tr><td>cloud_cover</td><td>decimal</td><td>The cloud cover the day of the sighting as a percentage of the visible sky.</td></tr>
+                <tr><td>moon_phase</td><td>decimal</td><td>The fractional part of the lunar number - 0 is new moon, 0.5 is full moon.</td></tr>
+                <tr><td>precip_intensity</td><td>decimal</td><td>The precipitation intensity in inches per hour.</td></tr>
+                <tr><td>precip_probability</td><td>decimal</td><td>The probability of precipitation the day of the sighting.</td></tr>
+                <tr><td>precip_type</td><td>string</td><td>The type of precipitation the day of the sighting.</td></tr>
+                <tr><td>pressure</td><td>decimal</td><td>The pressure the day of the sighting.</td></tr>
+                <tr><td>summary</td><td>string</td><td>A human readable summary of the weather conditions the day of the sighting.</td></tr>
+                <tr><td>conditions</td><td>string</td></tr>
+                <tr><td>uv_index</td><td>decimal</td><td>The UV index the day of the sighting.</td></tr>
+                <tr><td>visibility</td><td>decimal</td><td>The visibility the day of the sighting, in miles. Capped at 10.</td></tr>
+                <tr><td>wind_bearing</td><td>decimal</td><td>The direction the wind was coming from the day of the sighting.</td></tr>
+                <tr><td>wind_speed</td><td>decimal</td><td>The wind speed the day of the sighting in miles per hour.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+  </body>
+</html>

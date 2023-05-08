@@ -1,0 +1,18 @@
+      /* Add space between Vega-Embed links  */
+      .vega-actions a {
+        margin-right: 5px;
+      }
+
+      #fieldlist { 
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      #fieldlist tr {
+        border: 1px solid black;
+      }
+
+      #fieldlist td, #fieldlist th {
+        border: 1px solid black;
+        padding: 3px;
+      }
